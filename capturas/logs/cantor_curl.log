@@ -1,0 +1,15 @@
+$ curl -X POST localhost:8080/salas
+{"id":"WERZE","claveCantor":"***"}
+$ curl -X POST localhost:8080/salas/WERZE/unirse -d {"nombre":"Ana","destino":null}
+{'nombre': 'Ana', 'tabla': [1, 29, 8, 6, 2, 7, 26, 27, 49, 22, 50, 48, 24, 43, 23, 28], 'claveJugador': '***', 'ultima': 0}
+$ curl -X POST localhost:8080/salas/WERZE/cantar -H x-cantor-clave:***
+{"evento":{"tipo":"carta","sala":"WERZE","n":1,"cartaId":11,"nombre":"El Melón","pista":"Se elige a golpecitos y aun así sale malo."},"enviado":true,"avisosCasi":0}
+$ curl -X POST .../cantar   (otra vez de inmediato: freno)
+{"error":"MUY_RAPIDO","mensaje":"Canta más despacio"}
+$ curl -X POST .../cantar -H x-cantor-clave:adivinada
+{"error":"NO_AUTORIZADO","mensaje":"Solo el cantor puede hacer eso"}
+$ curl localhost:8080/salas/WERZE/estado?desde=0
+{"sala":"WERZE","ultima":1,"cartas":[{"n":1,"cartaId":11,"nombre":"El Melón","pista":"Se elige a golpecitos y aun así sale malo."}],"ganador":null,"patron":null}
+--- consola del cantor (push simulado) ---
+2026-11-20T07:50:26.912Z Cantor listo en http://localhost:8080 (push simulado en consola; intervalo mínimo 2000 ms)
+2026-11-20T07:50:36.799Z [push simulado] {"topic":"sala_WERZE","notification":{"title":"🎴 El Melón","body":"Se elige a golpecitos y aun así sale malo."},"data":{"tipo":"carta","sala":"WERZE","n":"1","cartaId":"11","

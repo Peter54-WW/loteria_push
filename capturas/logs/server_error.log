@@ -1,0 +1,84 @@
+✔ hay 54 cartas con ids 1..54, nombres y pistas únicos (21.8221ms)
+✔ decisión de inclusión: no hay cartas con nombres ofensivos (105.5019ms)
+✔ cartaPorId devuelve la carta o null (1.0264ms)
+✔ barajar es una permutación completa (6.7714ms)
+✔ con la misma semilla sale el mismo orden; con otra, distinto (3.7147ms)
+✔ la tabla tiene 16 cartas distintas y válidas (1.4727ms)
+✔ hay 13 patrones (llena, 4 filas, 4 columnas, 2 diagonales, esquinas, centro) (10.8657ms)
+✔ sin cartas cantadas no hay patrón (4.1071ms)
+✔ fila 1 (6.4578ms)
+✔ columna 1 (1.4437ms)
+✔ diagonal 1 (1.7277ms)
+✔ diagonal 2 (0.9995ms)
+✔ cuatro esquinas (2.3067ms)
+✔ centro (1.4324ms)
+✔ una carta de menos no cuenta (4.5867ms)
+✔ cartas que no están en la tabla se ignoran (2.9922ms)
+✔ tabla llena incluye todos los patrones (1.2875ms)
+✔ cartaQueFalta: a una carta de la fila 1 (1.2639ms)
+✔ cartaQueFalta: diagonal (0.8965ms)
+✔ cartaQueFalta: nada cerca -> null (0.9086ms)
+✔ cartaQueFalta: si ya hay patrón completo -> null (1.1063ms)
+✔ descripciones humanas (1.3244ms)
+✔ carta: va al tema de la sala (9.7305ms)
+✔ data: TODOS los valores son cadenas (requisito de FCM) (6.5647ms)
+✔ carta: caduca en 60 s (una carta vieja ya no sirve) (101.2757ms)
+✔ carta: colapsa (Android collapseKey+tag, iOS apns-collapse-id) (1.5138ms)
+✔ canales: cartas son discretas; casi y lotería son momentos importantes (2.2614ms)
+✔ lotería: duración larga y texto humano (30.8267ms)
+✔ haciaDestino: quita el tema y apunta a un token o a un fid (1.3925ms)
+✔ un mensaje de más de 4 KB se rechaza antes de enviarlo (2.8ms)
+✔ un mensaje típico pesa mucho menos del límite (11.8014ms)
+✔ unirse: devuelve tabla de 16, clave propia y las cartas ya cantadas (126.4371ms)
+✔ unirse sin destino (sin permiso de notificaciones) está permitido (1.8343ms)
+✔ nombres inválidos, repetidos y destinos inválidos se rechazan (8.0985ms)
+✔ nombres con acentos y eñes son válidos (1.3423ms)
+✔ la sala se llena en el máximo de jugadores (9.0928ms)
+✔ cantar entrega las cartas en el orden del mazo secreto (2.1659ms)
+✔ freno: cantar dos veces seguidas es "muy rápido" (1.8002ms)
+✔ estado: solo muestra lo ya cantado y permite pedir "desde n" (3.1808ms)
+✔ estado devuelve copias: modificar la respuesta no altera la sala (2.376ms)
+✔ reclamar sin patrón completo: no gana, y puede seguir jugando (4.0406ms)
+✔ reclamar con clave equivocada es "no autorizado" (igual si el jugador no existe) (2.0692ms)
+✔ un jugador gana cuando completa un patrón; el servidor lo valida (138.0018ms)
+✔ después de ganar: nadie más gana y no se puede seguir cantando (7.2195ms)
+✔ "¡casi!": se avisa UNA sola vez por jugador y solo a quien tiene destino (4.8337ms)
+✔ el aviso de "casi" nombra la carta que falta (2.6017ms)
+✔ actualizar destino exige la clave del jugador (1.6626ms)
+✔ solo el cantor (con su clave) puede verificar (1.2831ms)
+✔ Salas: crear, obtener sin importar mayúsculas y sala inexistente (2.2986ms)
+✔ flujo completo: crear, unirse, cantar y ver el push al tema (2031.3203ms)
+✔ cantar exige la clave del cantor (666.8109ms)
+✔ freno: dos cantos seguidos -> 429 y solo un push (228.1586ms)
+✔ GET estado devuelve las cartas desde n (para ponerse al día) (500.1331ms)
+✔ si FCM falla, el canto igual cuenta (el estado es la verdad) y se registra el fallo (143.5748ms)
+✔ aviso de "casi" va a UN token, no al tema; y el token muerto se elimina (988.2751ms)
+✔ un error "invalid-argument" NO borra al jugador (puede ser nuestro mensaje) (736.4715ms)
+✔ un destino tipo fid se envía con el campo fid (1272.4121ms)
+✔ PUT destino: solo con la clave del jugador (nadie secuestra tokens ajenos) (254.3328ms)
+✔ lotería: el servidor valida y avisa a todos; falsa alarma no avisa a nadie (994.4802ms)
+✖ entradas malas: JSON roto, cuerpo enorme, sala inexistente y ruta desconocida (260.1011ms)
+✔ errores internos no filtran detalles al cliente (27.9591ms)
+ℹ tests 61
+ℹ suites 0
+ℹ pass 60
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 28294.5541
+
+✖ failing tests:
+
+test at test\servidor.test.js:203:1
+✖ entradas malas: JSON roto, cuerpo enorme, sala inexistente y ruta desconocida (260.1011ms)
+  [TypeError [Error]: fetch failed] {
+    [cause]: Error [SocketError]: other side closed
+        at Socket.onHttpSocketEnd (node:internal/deps/undici/undici:8033:26)
+        at Socket.emit (node:events:526:24)
+        at endReadableNT (node:internal/streams/readable:2147:12)
+        at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+      code: 'UND_ERR_SOCKET',
+      socket: { localAddress: '127.0.0.1', localPort: 65298, remoteAddress: '127.0.0.1', remotePort: 65296, remoteFamily: 'IPv4', timeout: undefined, bytesWritten: 5508, bytesRead: 264 }
+    }
+  }

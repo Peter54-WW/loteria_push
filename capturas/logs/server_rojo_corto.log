@@ -1,0 +1,40 @@
+  throw err;
+  ^
+
+Error: Cannot find module '../baraja'
+Require stack:
+- C:\Users\Dell\Downloads\PedroGarciaMata\loteria_push\server\test\baraja.test.js
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Dell\\Downloads\\PedroGarciaMata\\loteria_push\\server\\test\\baraja.test.js'
+  ]
+}
+
+Node.js v26.13.1
+✖ test\baraja.test.js (440.7305ms)
+  throw err;
+  ^
+
+Error: Cannot find module '../lineas'
+Require stack:
+- C:\Users\Dell\Downloads\PedroGarciaMata\loteria_push\server\test\lineas.test.js
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Dell\\Downloads\\PedroGarciaMata\\loteria_push\\server\\test\\lineas.test.js'
+  ]
+}
+
+Node.js v26.13.1
+✖ test\lineas.test.js (449.5097ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1043.7753
+
+✖ failing tests:
+
+test at test\baraja.test.js:1:1

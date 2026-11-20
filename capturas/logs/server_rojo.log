@@ -1,0 +1,68 @@
+node:internal/modules/cjs/loader:1607
+  throw err;
+  ^
+
+Error: Cannot find module '../baraja'
+Require stack:
+- C:\Users\Dell\Downloads\PedroGarciaMata\loteria_push\server\test\baraja.test.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1603:15)
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1145:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1169:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1196:12)
+    at Module._load (node:internal/modules/cjs/loader:1370:5)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.require (node:internal/modules/cjs/loader:1713:12)
+    at require (node:internal/modules/helpers:318:16)
+    at Object.<anonymous> (C:\Users\Dell\Downloads\PedroGarciaMata\loteria_push\server\test\baraja.test.js:4:55)
+    at Module._compile (node:internal/modules/cjs/loader:1968:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Dell\\Downloads\\PedroGarciaMata\\loteria_push\\server\\test\\baraja.test.js'
+  ]
+}
+
+Node.js v26.13.1
+✖ test\baraja.test.js (440.7305ms)
+node:internal/modules/cjs/loader:1607
+  throw err;
+  ^
+
+Error: Cannot find module '../lineas'
+Require stack:
+- C:\Users\Dell\Downloads\PedroGarciaMata\loteria_push\server\test\lineas.test.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1603:15)
+    at wrapResolveFilename (node:internal/modules/cjs/loader:1145:27)
+    at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1169:10)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1196:12)
+    at Module._load (node:internal/modules/cjs/loader:1370:5)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.require (node:internal/modules/cjs/loader:1713:12)
+    at require (node:internal/modules/helpers:318:16)
+    at Object.<anonymous> (C:\Users\Dell\Downloads\PedroGarciaMata\loteria_push\server\test\lineas.test.js:4:73)
+    at Module._compile (node:internal/modules/cjs/loader:1968:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Dell\\Downloads\\PedroGarciaMata\\loteria_push\\server\\test\\lineas.test.js'
+  ]
+}
+
+Node.js v26.13.1
+✖ test\lineas.test.js (449.5097ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1043.7753
+
+✖ failing tests:
+
+test at test\baraja.test.js:1:1
+✖ test\baraja.test.js (440.7305ms)
+  'test failed'
+
+test at test\lineas.test.js:1:1
+✖ test\lineas.test.js (449.5097ms)
+  'test failed'

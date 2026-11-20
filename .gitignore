@@ -1,0 +1,18 @@
+# --- añadido para subir a GitHub ---
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.idea/
+*.iml
+node_modules/
+apk/
+*.apk
+*.aab
+*.jks
+*.keystore
+key.properties
+local.properties
+.env
+secrets.json
+__pycache__/
