@@ -10,10 +10,8 @@ Las cartas "El Taco" y "El Elote" se usaron en lugar de dos cartas con nombres o
 
 ## APK
 
-| Archivo | Ruta |
-|---|---|
-| Lista para instalar | apk/LoteriaPush.apk (18.2 MB) |
-| Salida de Flutter | build/app/outputs/flutter-apk/app-release.apk |
+- Lista para instalar: apk/LoteriaPush.apk (18.2 MB)
+- Salida de Flutter: build/app/outputs/flutter-apk/app-release.apk
 
 Para compilarla:
 
@@ -73,24 +71,38 @@ Lo que hace el servidor:
 
 Tomadas en un teléfono con el APK instalado.
 
-| Inicio (unirse a una sala) | Pantalla del cantor | Tabla con frijolitos |
-|---|---|---|
-| ![](capturas/app_01_inicio.png) | ![](capturas/app_02_cantor.png) | ![](capturas/app_03_tabla.png) |
+Inicio (unirse a una sala)
 
-| Te falta una carta | Lotería (ganador) | Sin conexión con el cantor |
-|---|---|---|
-| ![](capturas/app_04_casi.png) | ![](capturas/app_05_loteria.png) | ![](capturas/app_06_error_sin_servidor.png) |
+<img src="capturas/app_01_inicio.png" width="250">
+
+Pantalla del cantor
+
+<img src="capturas/app_02_cantor.png" width="250">
+
+Tabla con frijolitos
+
+<img src="capturas/app_03_tabla.png" width="250">
+
+Te falta una carta
+
+<img src="capturas/app_04_casi.png" width="250">
+
+Lotería (ganador)
+
+<img src="capturas/app_05_loteria.png" width="250">
+
+Sin conexión con el cantor
+
+<img src="capturas/app_06_error_sin_servidor.png" width="250">
 
 ## Pruebas rápidas en la app
 
-| Caso | Qué hacer | Resultado esperado |
-|---|---|---|
-| Cantor | Teléfono A: "Soy el cantor" y luego "Crear sala" | Aparece el código de la sala (ej. K7M2P) |
-| Jugador | Teléfono B: escribir nombre y código, luego "Unirme" | Aparece la tabla de 16 cartas |
-| Cantar | Teléfono A: "Cantar la siguiente carta" | En B aparece la carta y su frijolito (máximo 5 s sin push) |
-| Freno | Cantar dos veces muy rápido | Sale el mensaje "Canta más despacio" |
-| Lotería | Completar una fila y tocar LOTERÍA | Sale "¡Ganaste!" (lo confirma el servidor) |
-| Sin servidor | Apagar el cantor | Sale en rojo "No se pudo contactar al cantor" |
+1. Cantor: en el teléfono A toca "Soy el cantor" y luego "Crear sala". Debe aparecer el código de la sala (por ejemplo K7M2P).
+2. Jugador: en el teléfono B escribe tu nombre y el código, y toca "Unirme". Debe aparecer la tabla de 16 cartas.
+3. Cantar: en el teléfono A toca "Cantar la siguiente carta". En el teléfono B debe aparecer la carta con su frijolito en menos de 5 segundos.
+4. Freno: canta dos veces muy rápido. Debe salir el mensaje "Canta más despacio".
+5. Lotería: completa una fila y toca LOTERÍA. Debe salir "¡Ganaste!", después de que el servidor lo confirme.
+6. Sin servidor: apaga el cantor. Debe salir en rojo "No se pudo contactar al cantor".
 
 ## Cómo correr el proyecto
 
