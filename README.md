@@ -8,14 +8,12 @@ La app no depende solo de las notificaciones: si se pierde alguna, le pregunta a
 
 Las cartas "El Taco" y "El Elote" se usaron en lugar de dos cartas con nombres ofensivos.
 
----
-
 ## APK
 
 | Archivo | Ruta |
 |---|---|
-| Lista para instalar | `apk/LoteriaPush.apk` (18.2 MB) |
-| Salida de Flutter | `build/app/outputs/flutter-apk/app-release.apk` |
+| Lista para instalar | apk/LoteriaPush.apk (18.2 MB) |
+| Salida de Flutter | build/app/outputs/flutter-apk/app-release.apk |
 
 Para compilarla:
 
@@ -23,46 +21,37 @@ Para compilarla:
 flutter build apk --release --target-platform android-arm64
 ```
 
-El APK funciona en teléfonos arm64 (casi todos los Android recientes). Para instalarlo, copia el `.apk` al teléfono,
-ábrelo y permite instalar apps de origen desconocido.
+El APK funciona en teléfonos arm64 (casi todos los Android recientes). Para instalarlo, copia el archivo .apk al
+teléfono, ábrelo y permite instalar apps de origen desconocido.
 
 ### Sin Firebase
 
-Este APK se compiló sin `google-services.json`, así que no usa notificaciones push. En su lugar, la app le pregunta
+Este APK se compiló sin google-services.json, así que no usa notificaciones push. En su lugar, la app le pregunta
 al cantor cada 5 segundos si hay cartas nuevas. Para activar las notificaciones:
 
-1. Crea un proyecto en la consola de Firebase y registra la app Android `mx.edu.utng.loteria_push`.
-2. Copia `google-services.json` a `app/android/app/` y agrega el plugin `com.google.gms.google-services`.
-3. En el servidor: `npm install firebase-admin`, define la variable `GOOGLE_APPLICATION_CREDENTIALS` y ejecuta `FCM_REAL=1 npm start`.
+1. Crea un proyecto en la consola de Firebase y registra la app Android mx.edu.utng.loteria_push.
+2. Copia google-services.json a app/android/app/ y agrega el plugin com.google.gms.google-services.
+3. En el servidor instala firebase-admin, define la variable GOOGLE_APPLICATION_CREDENTIALS y arranca con FCM_REAL=1 npm start.
 
-En la app, toca el botón del servidor para escribir la dirección del cantor (`http://IP-DE-TU-PC:8080`). El celular y
+En la app, toca el botón del servidor para escribir la dirección del cantor (http://IP-DE-TU-PC:8080). El celular y
 la computadora deben estar conectados a la misma red Wi-Fi.
-
----
 
 ## Estructura del código
 
-```
-loteria_push/
-├── server/                    servidor del cantor (Node)
-│   ├── baraja.js lineas.js mensajes.js sala.js enviador.js servidor.js
-│   └── test/
-└── app/
-    ├── lib/dominio/       evento, lineas, cartas, partida, api_juego, puerto_push, almacen, sesion, controlador
-    ├── lib/infra/         puerto_fcm, puerto_sin_push, fondo, canales_android, api_http, almacen_prefs
-    ├── lib/presentacion/  vms, pantalla_inicio, pantalla_juego, pantalla_cantor
-    └── test/
-```
+El proyecto tiene dos carpetas principales:
 
-- `dominio`: las reglas del juego (cartas, tablas, cuándo se gana).
-- `infra`: la conexión con Firebase, el servidor y el almacenamiento del teléfono.
-- `presentacion`: las pantallas de la app.
-
----
+- server: el servidor del cantor, hecho en Node.
+  - baraja.js, lineas.js, mensajes.js, sala.js, enviador.js y servidor.js
+  - test: pruebas del servidor
+- app: la aplicación en Flutter.
+  - lib/dominio: las reglas del juego (cartas, tablas, cuándo se gana).
+  - lib/infra: la conexión con Firebase, el servidor y el almacenamiento del teléfono.
+  - lib/presentacion: las pantallas de la app (inicio, juego y cantor).
+  - test: pruebas de la app
 
 ## Servidor
 
-Desde la carpeta `server`:
+Desde la carpeta server:
 
 ```bash
 npm install
@@ -80,8 +69,6 @@ Lo que hace el servidor:
 - Revisa que quien canta Lotería tenga la línea completa.
 - Borra los tokens de teléfonos que ya no existen.
 
----
-
 ## Capturas de la app
 
 Tomadas en un teléfono con el APK instalado.
@@ -94,20 +81,16 @@ Tomadas en un teléfono con el APK instalado.
 |---|---|---|
 | ![](capturas/app_04_casi.png) | ![](capturas/app_05_loteria.png) | ![](capturas/app_06_error_sin_servidor.png) |
 
----
-
 ## Pruebas rápidas en la app
 
 | Caso | Qué hacer | Resultado esperado |
 |---|---|---|
-| Cantor | Teléfono A: "Soy el cantor" y luego "Crear sala" | Aparece el código de la sala (ej. `K7M2P`) |
+| Cantor | Teléfono A: "Soy el cantor" y luego "Crear sala" | Aparece el código de la sala (ej. K7M2P) |
 | Jugador | Teléfono B: escribir nombre y código, luego "Unirme" | Aparece la tabla de 16 cartas |
 | Cantar | Teléfono A: "Cantar la siguiente carta" | En B aparece la carta y su frijolito (máximo 5 s sin push) |
 | Freno | Cantar dos veces muy rápido | Sale el mensaje "Canta más despacio" |
 | Lotería | Completar una fila y tocar LOTERÍA | Sale "¡Ganaste!" (lo confirma el servidor) |
 | Sin servidor | Apagar el cantor | Sale en rojo "No se pudo contactar al cantor" |
-
----
 
 ## Cómo correr el proyecto
 
